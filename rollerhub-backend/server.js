@@ -3,16 +3,8 @@ const http = require('http');
 
 const PORT = process.env.PORT || 3001;
 
-// Hamburg GBFS feeds - these work without auth
+// Hamburg GBFS feeds - confirmed working
 const FEEDS = [
-  {
-    provider: 'Tier',
-    color: '#2563EB',
-    price: '0.19€/min',
-    // Tier public feed for Hamburg (no auth required for public zones)
-    url: 'https://data.tier.app/gbfs/v2/hamburg/free_bike_status.json',
-    fallback: 'https://data-sharing.tier-services.io/tier_hamburg/gbfs/2/free-bike-status',
-  },
   {
     provider: 'Lime',
     color: '#16A34A',
@@ -20,23 +12,10 @@ const FEEDS = [
     url: 'https://data.lime.bike/api/partners/v2/gbfs/hamburg/free_bike_status',
   },
   {
-    provider: 'Voi',
-    color: '#E11D48',
-    price: '0.20€/min',
-    url: 'https://api.voiapp.io/v1/gbfs/1/hamburg/free_bike_status',
-    fallback: 'https://api.mobidata-bw.de/sharing/gbfs/v3/voi_de/free_bike_status.json',
-  },
-  {
-    provider: 'Bolt',
-    color: '#D97706',
-    price: '0.17€/min',
-    url: 'https://mds.bolt.eu/gbfs/2/hamburg/free_bike_status',
-  },
-  {
-    provider: 'Bird',
-    color: '#555555',
-    price: '0.22€/min',
-    url: 'https://mds.bird.co/gbfs/hamburg/free_bike_status',
+    provider: 'Dott',
+    color: '#FF6B35',
+    price: '0.21€/min',
+    url: 'https://gbfs.api.ridedott.com/public/v2/hamburg/free_bike_status.json',
   },
 ];
 
