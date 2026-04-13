@@ -10,17 +10,8 @@ const FEEDS = [
     url: 'https://data.lime.bike/api/partners/v2/gbfs/hamburg/free_bike_status',
   },
   {
-    provider: 'Voi',
-    url: 'https://api.voiapp.io/v1/gbfs/1/hamburg/free_bike_status',
-    fallback: 'https://api.mobidata-bw.de/sharing/gbfs/v3/voi_de/free_bike_status.json',
-  },
-  {
-    provider: 'Tier',
-    url: 'https://data.tier.app/gbfs/v2/hamburg/free_bike_status.json',
-  },
-  {
-    provider: 'Bolt',
-    url: 'https://mds.bolt.eu/gbfs/2/hamburg/free_bike_status',
+    provider: 'Dott',
+    url: 'https://gbfs.api.ridedott.com/public/v2/hamburg/free_bike_status.json',
   },
 ];
 
