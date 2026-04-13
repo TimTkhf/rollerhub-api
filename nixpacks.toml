@@ -1,3 +1,5 @@
+providers = ["node"]
+
 [phases.build]
 cmds = []
 
