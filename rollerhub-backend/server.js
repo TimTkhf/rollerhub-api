@@ -7,15 +7,20 @@ const PORT = process.env.PORT || 3001;
 const FEEDS = [
   {
     provider: 'Lime',
-    color: '#16A34A',
-    price: '0.25€/min',
     url: 'https://data.lime.bike/api/partners/v2/gbfs/hamburg/free_bike_status',
   },
   {
-    provider: 'Dott',
-    color: '#FF6B35',
-    price: '0.21€/min',
-    url: 'https://gbfs.api.ridedott.com/public/v2/hamburg/free_bike_status.json',
+    provider: 'Voi',
+    url: 'https://api.voiapp.io/v1/gbfs/1/hamburg/free_bike_status',
+    fallback: 'https://api.mobidata-bw.de/sharing/gbfs/v3/voi_de/free_bike_status.json',
+  },
+  {
+    provider: 'Tier',
+    url: 'https://data.tier.app/gbfs/v2/hamburg/free_bike_status.json',
+  },
+  {
+    provider: 'Bolt',
+    url: 'https://mds.bolt.eu/gbfs/2/hamburg/free_bike_status',
   },
 ];
 
@@ -59,8 +64,6 @@ async function fetchFeed(feed) {
         .map(b => ({
           id: `${feed.provider}-${b.bike_id}`,
           provider: feed.provider,
-          color: feed.color,
-          price: feed.price,
           lat: b.lat,
           lng: b.lon,
           battery: b.current_range_meters != null
